@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/Grant/Documents/GitHub/DeepLearningProject/ml-agents/UnitySDK/Assets/ML-Agents/Examples/3DBall/Scenes/3DBall.unity
+- path: Assets/Scenes/Snake.unity
   isLoaded: 1
   isActive: 1

@@ -154,7 +154,8 @@
     <Compile Include="Assets\ML-Agents\Scripts\UnityAgentsException.cs" />
     <Compile Include="Assets\RollerAcademy.cs" />
     <Compile Include="Assets\RollerAgent.cs" />
-    <Compile Include="Assets\Scripts\Snake.cs" />
+    <Compile Include="Assets\Scripts\SnakeAcademy.cs" />
+    <Compile Include="Assets\Scripts\SnakeAgent.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Grant/Documents/GitHub/DeepLearningProject/SnakeDeepLearning/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
