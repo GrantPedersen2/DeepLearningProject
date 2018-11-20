@@ -110,15 +110,36 @@ public class SnakeAgent : Agent
         AddVectorObs(relativePosition.z);
 
         // Get position between head and body if possible...
-        Vector3 bodyPart = (snakeBody.Count > 0) ? Vector3.Normalize(snakePosition.position - snakeBody[snakeBody.Count / 2].transform.position) : Vector3.zero;
+        int index = Mathf.FloorToInt(snakeBody.Count / 2);
+        Vector3 bodyPart = (snakeBody.Count > 0) ? Vector3.Normalize(snakePosition.position - snakeBody[index].transform.position) : Vector3.zero;
         AddVectorObs(bodyPart.x);
         AddVectorObs(bodyPart.z);
 
+        //Check surroundings in front of head, is there a body part near as well...
+        RaycastHit hit;
+        Vector3 fwd = snakePosition.TransformDirection(Vector3.forward);
+        
+        Debug.DrawRay(snakePosition.position, fwd, Color.green);
+        Vector3 hitObj = Vector3.zero;
+        if (Physics.Raycast(snakePosition.position, fwd, out hit))
+        {
+            hitObj = hit.transform.position - snakePosition.position;
+        }
+        AddVectorObs(hitObj.x);
+        AddVectorObs(hitObj.z);
         // Distance to walls
         /*AddVectorObs((snakePosition.position.x + 5) / 5);
         AddVectorObs((snakePosition.position.x - 5) / 5);
         AddVectorObs((snakePosition.position.z + 5) / 5);
         AddVectorObs((snakePosition.position.z - 5) / 5);*/
+    }
+
+    private void TakeAction(float [] vecAction)
+    {
+        //Time penalty.
+        AddReward(-0.05f);
+
+        MoveAgent(vecAction);
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
@@ -127,23 +148,12 @@ public class SnakeAgent : Agent
         {
             if (Input.anyKeyDown)
             {
-                /*if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
-                {
-
-                }*/
-
-                //Time penalty.
-                AddReward(-0.05f);
-
-                MoveAgent(vectorAction);
+                TakeAction(vectorAction);
             }
         }
         else
         {
-            //Time penalty.
-            AddReward(-0.05f);
-
-            MoveAgent(vectorAction);
+            TakeAction(vectorAction);
         }
     }
 
