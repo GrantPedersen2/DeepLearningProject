@@ -12,6 +12,7 @@ public class SnakeAgent : Agent
     public bool HasDied {get;set;} = false;
     List<GameObject> snakeBody = new List<GameObject>();
     private Transform tail;
+    private Renderer rend; 
 
     void AddBodyPart()
     {
@@ -71,6 +72,7 @@ public class SnakeAgent : Agent
     {
         academy = FindObjectOfType(typeof(SnakeAcademy)) as SnakeAcademy;
         tail = snakePosition = this.transform;
+        rend = GetComponent<Renderer>();
     }
 
     public override void AgentReset()
@@ -84,10 +86,16 @@ public class SnakeAgent : Agent
         }
         else
         {
-            float x = Mathf.Floor(Random.value * 8 - 4);
-            float z = Mathf.Floor(Random.value * 8 - 4);
-            
-            Target.position = new Vector3(x, Target.position.y, z);
+            var position = Vector3.zero;
+            do
+            {
+                float x = Mathf.Floor(Random.value * 8 - 4);
+                float z = Mathf.Floor(Random.value * 8 - 4);
+
+                position = new Vector3(x, Target.position.y, z);
+            } while (snakeBody.Any(x => x.GetComponent<Renderer>().bounds.Contains(position)) || rend.bounds.Contains(position));
+
+            Target.position = position;
         }
         //academy.AcademyReset();
     }
@@ -98,11 +106,13 @@ public class SnakeAgent : Agent
         Vector3 relativePosition = Vector3.Normalize(Target.position - tail.position);
 
         // Relative position
-        AddVectorObs(relativePosition.x / 5);
-        AddVectorObs(relativePosition.z / 5);
+        AddVectorObs(relativePosition.x);
+        AddVectorObs(relativePosition.z);
 
         // Get position between head and body if possible...
-        //AddVectorObs(head.position - bodyPoint.position)
+        Vector3 bodyPart = (snakeBody.Count > 0) ? Vector3.Normalize(snakePosition.position - snakeBody[snakeBody.Count / 2].transform.position) : Vector3.zero;
+        AddVectorObs(bodyPart.x);
+        AddVectorObs(bodyPart.z);
 
         // Distance to walls
         /*AddVectorObs((snakePosition.position.x + 5) / 5);

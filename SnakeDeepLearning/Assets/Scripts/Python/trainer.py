@@ -14,11 +14,8 @@ from mlagents.envs import UnityEnvironment
 episodes = 200
 stateSize = 3 #envrionment state size (x position relative to target, z position relative to target, head to body position)
 actionSize = 4 #(left = -1, up = 0, right = 1, down = 2)
-pframe = 4
 
 agent1 = unityAgent(stateSize, actionSize, .99, 0.0005, 0.1, 0.999, 0.5, 25000, 200000)
-a1NewState = np.reshape([0,0,0], [1, stateSize])
-a1OldState = np.reshape([0,0,0], [1, stateSize])
 
 def main():
     #file_name = None means to hook into the Unity editor
@@ -31,7 +28,7 @@ def main():
     brain = env.brains[mainBrain]
     
     #Main loop
-    for episode in range(100):
+    for episode in range(episodes):
         env_info = env.reset(train_mode=True)[mainBrain]
         done = False
         episode_rewards = 0
@@ -42,7 +39,6 @@ def main():
                 print(env_info.vector_observations)
             else:
                 action = np.column_stack([np.random.randint(0, action_size[i], size=(len(env_info.agents))) for i in range(len(action_size))])
-                print(action)
                 env_info = env.step(action)[mainBrain]
             episode_rewards += env_info.rewards[0]
             done = env_info.local_done[0]
