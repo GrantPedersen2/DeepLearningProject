@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
 using System.Linq;
+using System.IO;
 
 public class SnakeAgent : Agent
 {
@@ -12,7 +13,11 @@ public class SnakeAgent : Agent
     public bool HasDied {get;set;} = false;
     List<GameObject> snakeBody = new List<GameObject>();
     private Transform tail;
-    private Renderer rend; 
+    private Renderer rend;
+    private int gblDirection = 0;
+    private object mutex = new object();
+    List<string> results = new List<string>();
+    bool hasClicked = true;
 
     void AddBodyPart()
     {
@@ -97,23 +102,25 @@ public class SnakeAgent : Agent
 
             Target.position = position;
         }
+        WriteFile();
         //academy.AcademyReset();
     }
 
+    //CHECK HOW TO RUN THIS ONCE EVERY INPUT...
     public override void CollectObservations()
     {
         // Calculate relative position from tail to target...
         Vector3 relativePosition = Vector3.Normalize(Target.position - tail.position);
 
         // Relative position
-        AddVectorObs(relativePosition.x);
-        AddVectorObs(relativePosition.z);
+        AddVectorObs(relativePosition.x); // / 5);
+        AddVectorObs(relativePosition.z); // / 5);
 
         // Get position between head and body if possible...
-        int index = Mathf.FloorToInt(snakeBody.Count / 2);
+        int index = Mathf.FloorToInt((snakeBody.Count / 2)); // may need -1 here....
         Vector3 bodyPart = (snakeBody.Count > 0) ? Vector3.Normalize(snakePosition.position - snakeBody[index].transform.position) : Vector3.zero;
-        AddVectorObs(bodyPart.x);
-        AddVectorObs(bodyPart.z);
+        AddVectorObs(bodyPart.x); // / 5);
+        AddVectorObs(bodyPart.z); // / 5);
 
         //Check surroundings in front of head, is there a body part near as well...
         RaycastHit hit;
@@ -121,19 +128,35 @@ public class SnakeAgent : Agent
         
         Debug.DrawRay(snakePosition.position, fwd, Color.green);
         Vector3 hitObj = Vector3.zero;
-        if (Physics.Raycast(snakePosition.position, fwd, out hit))
+        if (Physics.Raycast(snakePosition.position, fwd, out hit, 1.0f))
         {
-            hitObj = hit.transform.position - snakePosition.position;
+            hitObj = Vector3.Normalize(hit.transform.position - snakePosition.position);
+            Debug.Log("FOUND SOMETHING " + hit.transform.name);
         }
-        AddVectorObs(hitObj.x);
-        AddVectorObs(hitObj.z);
-        // Distance to walls
-        /*AddVectorObs((snakePosition.position.x + 5) / 5);
-        AddVectorObs((snakePosition.position.x - 5) / 5);
-        AddVectorObs((snakePosition.position.z + 5) / 5);
-        AddVectorObs((snakePosition.position.z - 5) / 5);*/
+        AddVectorObs(hitObj.x); // / 5);
+        AddVectorObs(hitObj.z); // / 5);
+        if (hasClicked)
+        {
+            string matrix = string.Format("[{0}, {1}, {2}, {3}, {4}, {5}, {6}]", relativePosition.x, relativePosition.z, bodyPart.x, bodyPart.z, hitObj.x, hitObj.z, gblDirection);
+            Debug.Log(matrix);
+            results.Add(matrix);
+            hasClicked = false;
+        }
     }
 
+    void WriteFile()
+    {
+        lock (mutex)
+        {
+            using (StreamWriter writer = new StreamWriter("results.txt"))
+            {
+                foreach (var item in results)
+                {
+                    writer.WriteLine(item);
+                }
+            }
+        }
+    }
     private void TakeAction(float [] vecAction)
     {
         //Time penalty.
@@ -148,6 +171,7 @@ public class SnakeAgent : Agent
         {
             if (Input.anyKeyDown)
             {
+                hasClicked = true;
                 TakeAction(vectorAction);
             }
         }
@@ -166,19 +190,19 @@ public class SnakeAgent : Agent
         int action = Mathf.FloorToInt(vectorAction[0]);
         Vector3 direction = Vector3.zero;
         UpdateSnake();
-
+        gblDirection = action;
         switch (action)
         {
-            case -1:
+            case 0:
                 direction = Vector3.left;
                 break;
-            case 0:
+            case 1:
                 direction = Vector3.forward;
                 break;
-            case 1:
+            case 2:
                 direction = Vector3.right;
                 break;
-            case 2:
+            case 3:
                 direction = Vector3.back;
                 break;
         }
