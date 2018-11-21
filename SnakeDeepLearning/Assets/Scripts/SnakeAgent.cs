@@ -118,7 +118,7 @@ public class SnakeAgent : Agent
 
         // Get position between head and body if possible...
         int index = Mathf.FloorToInt((snakeBody.Count / 2)); // may need -1 here....
-        Vector3 bodyPart = (snakeBody.Count > 0) ? Vector3.Normalize(snakePosition.position - snakeBody[index].transform.position) : Vector3.zero;
+        Vector3 bodyPart = Vector3.zero;//(snakeBody.Count > 0) ? Vector3.Normalize(snakePosition.position - snakeBody[index].transform.position) : Vector3.zero;
         AddVectorObs(bodyPart.x); // / 5);
         AddVectorObs(bodyPart.z); // / 5);
 
@@ -130,8 +130,8 @@ public class SnakeAgent : Agent
         Vector3 hitObj = Vector3.zero;
         if (Physics.Raycast(snakePosition.position, fwd, out hit, 1.0f))
         {
-            hitObj = Vector3.Normalize(hit.transform.position - snakePosition.position);
-            Debug.Log("FOUND SOMETHING " + hit.transform.name);
+            if(hit.transform.name != "Target")
+                hitObj = Vector3.Normalize(hit.transform.position - snakePosition.position);
         }
         AddVectorObs(hitObj.x); // / 5);
         AddVectorObs(hitObj.z); // / 5);
