@@ -73,6 +73,9 @@ public class SnakeAgent : Agent
         Done();
     }
 
+    /// <summary>
+    /// Initialize the agent brain and academy for preperation of training
+    /// </summary>
     public override void InitializeAgent()
     {
         academy = FindObjectOfType(typeof(SnakeAcademy)) as SnakeAcademy;
@@ -80,6 +83,10 @@ public class SnakeAgent : Agent
         rend = GetComponent<Renderer>();
     }
 
+    /// <summary>
+    /// Reset agent if the snake dies or eats block
+    /// this will start a new episode
+    /// </summary>
     public override void AgentReset()
     {
         if (HasDied)
@@ -102,11 +109,15 @@ public class SnakeAgent : Agent
 
             Target.position = position;
         }
-        WriteFile();
-        //academy.AcademyReset();
+
+        if(brain.brainType == BrainType.Player)
+            WriteFile();
     }
 
-    //CHECK HOW TO RUN THIS ONCE EVERY INPUT...
+    /// <summary>
+    /// Agent brain collects observations only for vector observation
+    /// based on tail to target, head to body, and wall to head
+    /// </summary>
     public override void CollectObservations()
     {
         // Calculate relative position from tail to target...
@@ -117,10 +128,10 @@ public class SnakeAgent : Agent
         AddVectorObs(relativePosition.z); // / 5);
 
         // Get position between head and body if possible...
-        int index = Mathf.FloorToInt((snakeBody.Count / 2)); // may need -1 here....
+        int index = Mathf.FloorToInt((snakeBody.Count / 2));
         Vector3 bodyPart = Vector3.zero;//(snakeBody.Count > 0) ? Vector3.Normalize(snakePosition.position - snakeBody[index].transform.position) : Vector3.zero;
-        AddVectorObs(bodyPart.x); // / 5);
-        AddVectorObs(bodyPart.z); // / 5);
+        AddVectorObs(bodyPart.x);
+        AddVectorObs(bodyPart.z);
 
         //Check surroundings in front of head, is there a body part near as well...
         RaycastHit hit;
@@ -182,15 +193,15 @@ public class SnakeAgent : Agent
     }
 
     /// <summary>
-    /// Move the snake agent into a direction without rotating the object.
+    /// Move the snake agent into a direction based on actions from player or computer
     /// </summary>
     /// <param name="vectorAction"></param>
     private void MoveAgent(float[] vectorAction)
     {
         int action = Mathf.FloorToInt(vectorAction[0]);
         Vector3 direction = Vector3.zero;
-        UpdateSnake();
         gblDirection = action;
+
         switch (action)
         {
             case 0:
@@ -206,8 +217,12 @@ public class SnakeAgent : Agent
                 direction = Vector3.back;
                 break;
         }
-
-        snakePosition.position += direction;
-        snakePosition.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        bool hits = snakeBody.Count > 0 ? snakePosition.position + direction != snakeBody[0].transform.position : true;
+        if (hits)
+        {
+            UpdateSnake();
+            snakePosition.position += direction;
+            snakePosition.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        }
     }
 }
