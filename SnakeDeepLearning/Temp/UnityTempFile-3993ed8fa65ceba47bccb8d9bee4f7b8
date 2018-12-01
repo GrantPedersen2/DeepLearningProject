@@ -82,19 +82,15 @@
 -r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
 -r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
 -r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll"
--r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
--r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.WSA.Extensions.dll"
--r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll"
--r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll"
 -r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll"
 -r:Assets/ML-Agents/Plugins/ProtoBuffer/Google.Protobuf.dll
 -r:Assets/ML-Agents/Plugins/ProtoBuffer/Grpc.Core.dll
 -r:Assets/ML-Agents/Plugins/ProtoBuffer/System.Interactive.Async.dll
--r:C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
--r:C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll
--r:C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll
--r:C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll
--r:C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll
+-r:C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
+-r:C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll
+-r:C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll
+-r:C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll
+-r:C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll
 -r:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll"
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.dll"
@@ -104,6 +100,9 @@
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Xml.Linq.dll"
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Numerics.dll"
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Numerics.Vectors.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Net.Http.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Microsoft.CSharp.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Data.dll"
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\Microsoft.Win32.Primitives.dll"
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\netstandard.dll"
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.AppContext.dll"
@@ -221,7 +220,7 @@
 -define:UNITY_2017_4_OR_NEWER
 -define:UNITY_2018_1_OR_NEWER
 -define:UNITY_2018_2_OR_NEWER
--define:UNITY_2018_2_13
+-define:UNITY_2018_2_17
 -define:UNITY_2018_2
 -define:UNITY_2018
 -define:PLATFORM_ARCH_64
@@ -308,48 +307,47 @@
 -define:ENABLE_BURST_AOT
 -define:UNITY_TEAM_LICENSE
 -define:ENABLE_VSTU
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/AssemblyInfo.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/External/SemVersion.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/External/SemVersionExtension.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Common/ApplicationUtil.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Common/OperationSignal.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Common/Resources.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Common/ThreadedDelay.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IAddOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IBaseOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IListOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IOperationFactory.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IRemoveOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/ISearchOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/OperationFactory.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/Package.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageCollection.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageFilter.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageGroupOrigins.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageInfo.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageInfoListExtensions.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageListExtensions.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageOrigin.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageState.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageTag.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmAddOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmBaseOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmListOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmOperationFactory.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmRemoveOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmSearchOperation.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/Alert.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/LoadingSpinner.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/PopupField.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/UIUtils.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/VersionItem.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Interfaces/IPackageManagerExtension.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageDetails.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageGroup.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageItem.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageList.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageManagerExtensions.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageManagerWindow.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageSearchFilterTabs.cs
-C:/Users/Grant/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackagesLoading.cs
--lib:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api"
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/AssemblyInfo.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/External/SemVersion.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/External/SemVersionExtension.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Common/ApplicationUtil.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Common/OperationSignal.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Common/Resources.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Common/ThreadedDelay.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IAddOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IBaseOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IListOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IOperationFactory.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/IRemoveOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Interfaces/ISearchOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/OperationFactory.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/Package.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageCollection.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageFilter.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageGroupOrigins.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageInfo.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageInfoListExtensions.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageListExtensions.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageOrigin.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageState.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Packages/PackageTag.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmAddOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmBaseOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmListOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmOperationFactory.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmRemoveOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/Services/Upm/UpmSearchOperation.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/Alert.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/LoadingSpinner.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/PopupField.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/UIUtils.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Common/VersionItem.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/Interfaces/IPackageManagerExtension.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageDetails.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageGroup.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageItem.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageList.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageManagerExtensions.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageManagerWindow.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackageSearchFilterTabs.cs
+C:/Users/mundr/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.package-manager-ui@1.9.11/Editor/Sources/UI/PackagesLoading.cs
