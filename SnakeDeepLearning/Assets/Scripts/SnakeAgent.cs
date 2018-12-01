@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using MLAgents;
 using System.Linq;
 using System.IO;
@@ -18,6 +19,9 @@ public class SnakeAgent : Agent
     private object mutex = new object();
     List<string> results = new List<string>();
     bool hasClicked = true;
+    bool notHitBody = true;
+    public Text score;
+    int scoreTotal = 0;
 
     void AddBodyPart()
     {
@@ -31,6 +35,8 @@ public class SnakeAgent : Agent
         //Put behind object...
         part.transform.position = tail.localPosition - tail.forward;
         tail = part.transform;
+        scoreTotal++;
+        score.text = "Score: " + scoreTotal;
     }
 
     void DestroyBody()
@@ -81,6 +87,8 @@ public class SnakeAgent : Agent
         academy = FindObjectOfType(typeof(SnakeAcademy)) as SnakeAcademy;
         tail = snakePosition = this.transform;
         rend = GetComponent<Renderer>();
+        scoreTotal = 0;
+        score.text = "Score: " + scoreTotal;
     }
 
     /// <summary>
@@ -95,6 +103,8 @@ public class SnakeAgent : Agent
             //Reset the position
             snakePosition.position = Vector3.zero;
             HasDied = false;
+            scoreTotal = 0;
+            score.text = "Score: " + scoreTotal;
         }
         else
         {
@@ -144,14 +154,14 @@ public class SnakeAgent : Agent
             if(hit.transform.name != "Target")
                 hitObj = Vector3.Normalize(hit.transform.position - snakePosition.position);
         }
-        AddVectorObs(hitObj.x); // / 5);
-        AddVectorObs(hitObj.z); // / 5);
-        if (hasClicked)
+        AddVectorObs(hitObj.x);
+        AddVectorObs(hitObj.z);
+        if (hasClicked && notHitBody)
         {
             string matrix = string.Format("[{0}, {1}, {2}, {3}, {4}, {5}, {6}]", relativePosition.x, relativePosition.z, bodyPart.x, bodyPart.z, hitObj.x, hitObj.z, gblDirection);
             Debug.Log(matrix);
             results.Add(matrix);
-            hasClicked = false;
+            notHitBody = hasClicked = false;
         }
     }
 
@@ -159,7 +169,7 @@ public class SnakeAgent : Agent
     {
         lock (mutex)
         {
-            using (StreamWriter writer = new StreamWriter("results.txt"))
+            using (StreamWriter writer = new StreamWriter("results.txt", true))
             {
                 foreach (var item in results)
                 {
@@ -218,8 +228,8 @@ public class SnakeAgent : Agent
                 direction = Vector3.back;
                 break;
         }
-        bool hits = snakeBody.Count > 0 ? snakePosition.position + direction != snakeBody[0].transform.position : true;
-        if (hits)
+        notHitBody = snakeBody.Count > 0 ? snakePosition.position + direction != snakeBody[0].transform.position : true;
+        if (notHitBody)
         {
             UpdateSnake();
             snakePosition.position += direction;

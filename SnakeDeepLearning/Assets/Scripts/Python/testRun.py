@@ -18,7 +18,7 @@ actionSize = 4
 agent1 = unityAgent(stateSize, actionSize, .99, 0.0005, 0.01, 0.999, 0.5, 25000, 200000)
 
 def LoadFile():
-    with open(r"C:\Users\mundr\source\repos\GrantPedersen2\DeepLearningProject\SnakeDeepLearning\BestSet.txt") as file:
+    with open(r"C:\Users\mundr\source\repos\GrantPedersen2\DeepLearningProject\SnakeDeepLearning\results.txt") as file:#\BestSet.txt") as file:
         dataSet = np.array([line.strip(" ,[]\n").split(',') for line in file.readlines()]).astype(float)
     X = dataSet[:, :-1]
     y = dataSet[:, -1]

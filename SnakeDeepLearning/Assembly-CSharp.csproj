@@ -159,6 +159,7 @@
     <Compile Include="Assets\Scripts\SnakeAgent.cs" />
     <None Include="Assets\Scripts\Python\DatasetCollection\BestSet.txt" />
     <None Include="Assets\Scripts\Python\results.txt" />
+    <None Include="Assets\Scripts\Python\DatasetCollection\latestBestSet.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/mundr/source/repos/GrantPedersen2/DeepLearningProject/SnakeDeepLearning/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
