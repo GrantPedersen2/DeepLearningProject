@@ -166,6 +166,7 @@ public class SnakeAgent : Agent
                     writer.WriteLine(item);
                 }
             }
+            results.Clear();
         }
     }
     private void TakeAction(float [] vecAction)
