@@ -217,7 +217,7 @@ MonoBehaviour:
     vectorActionDescriptions:
     - 
     vectorActionSpaceType: 1
-  brainType: 0
+  brainType: 2
   CoreBrains:
   - {fileID: 1336559910}
   - {fileID: 1958707370}
