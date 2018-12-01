@@ -102,7 +102,8 @@ public class SnakeAgent : Agent
 
             Target.position = position;
         }
-        WriteFile();
+        if(brain.brainType == BrainType.Player)
+            WriteFile();
         //academy.AcademyReset();
     }
 
@@ -155,6 +156,7 @@ public class SnakeAgent : Agent
                     writer.WriteLine(item);
                 }
             }
+            results.Clear();
         }
     }
     private void TakeAction(float [] vecAction)

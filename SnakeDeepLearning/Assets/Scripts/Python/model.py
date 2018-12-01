@@ -73,7 +73,7 @@ class RNN:
         #tBoard = TensorBoard(log_dir='logs/{}'.format('09_25_2018_TRAIN'))
         #history = self.model.fit()...
         #self.model.fit(X,y,epochs=1, shuffle=True)
-        self.model.fit(X,y,epochs=200, shuffle=True, batch_size=50) #inlcude verbose=2,callbacks=[tBoard]
+        self.model.fit(X,y,epochs=400, shuffle=True, batch_size=50) #inlcude verbose=2,callbacks=[tBoard]
         #scores = self.model.evaluate(XTest,yTest,verbose=0)
         #print('Baseline error: %.2f' % (1-scores[1]))
         #print('Accuracy: %.2f'%scores[1])
