@@ -13,6 +13,8 @@ import keras
 from keras import layers
 from keras import models
 import keras.backend as K
+from keras.callbacks import TensorBoard
+import MiscFunctions
 
 inputSize=6
 
@@ -47,7 +49,6 @@ class RNN:
         self.memory_length = memory_length          # size of replay memory
         self.memory = deque(maxlen=memory_length)   # replay memory array (tracks last n [s,a,r,s'] updates)
         self.model = self.BuildModel()
-        #self.target_model = self.BuildModel()
     
     def BuildModel(self, modelName = 'RNN'):
         model = models.Sequential()
@@ -70,16 +71,10 @@ class RNN:
         return model
     
     def Train(self, X, y):
-        #tBoard = TensorBoard(log_dir='logs/{}'.format('09_25_2018_TRAIN'))
-        #history = self.model.fit()...
-        #self.model.fit(X,y,epochs=1, shuffle=True)
-        self.model.fit(X,y,epochs=400, shuffle=True, batch_size=50) #inlcude verbose=2,callbacks=[tBoard]
-        #scores = self.model.evaluate(XTest,yTest,verbose=0)
-        #print('Baseline error: %.2f' % (1-scores[1]))
-        #print('Accuracy: %.2f'%scores[1])
+        tBoard = TensorBoard(log_dir='logs/{}'.format('11_30_TRAIN_RNN'))
+        history = self.model.fit(X,y,epochs=200, shuffle=True, batch_size=50, verbose=2, callbacks=[tBoard])
+        MiscFunctions.MiscFunctions.plot_history(history)
 
     def Action(self, state):
-        if np.random.rand() <= self.epsilon:
-            return random.randrange(self.action_size)
-        act_values = self.model.predict(state) #or try predict_classes instead becuase we one hot encoded...
-        return np.argmax(act_values)#[0])
+        act_values = self.model.predict(state)
+        return np.argmax(act_values)
