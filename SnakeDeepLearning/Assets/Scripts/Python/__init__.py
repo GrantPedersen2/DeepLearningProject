@@ -2,7 +2,7 @@
 """
 Created on Sat Nov 17 17:55:19 2018
 
-@author: Grant
+@author: Grant Pedersen and Devish Mundra
 """
 
 from .models import *
