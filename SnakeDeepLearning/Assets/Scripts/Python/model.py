@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Nov 17 17:44:10 2018
-
-@author: Grant
+@author: Grant Pedersen and Devish Mundra
 """
 
 import random
