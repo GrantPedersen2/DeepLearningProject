@@ -2,7 +2,7 @@
 """
 Created on Sat Nov 17 19:04:12 2018
 
-@author: Grant
+@author: Grant Pedersen and Devish Mundra
 
 NOTES: https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Python-API.md
 """
